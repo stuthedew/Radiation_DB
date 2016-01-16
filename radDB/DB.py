@@ -35,7 +35,7 @@ class DBhelper(object):
 def main():
     '''Runs if called as main program'''
     try:
-        with DBhelper('localhost', 'Rad_DB_py', '12345678', 'RadDB') as rdb:
+        with DBhelper('raspberrypi.local', 'Rad_DB_py', '12345678', 'RadDB') as rdb:
             rdb.get_version()
 
 

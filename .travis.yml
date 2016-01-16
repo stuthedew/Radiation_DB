@@ -3,5 +3,12 @@ python:
   - "2.7"
 # command to install dependencies
 install: "pip install -r requirements.txt"
+services:
+  - mysql
+  
+
+ before_script:
+  - mysql -e 'create database myapp_test;'
+
 # command to run tests
 script: nosetests
