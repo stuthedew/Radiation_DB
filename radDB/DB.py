@@ -25,7 +25,7 @@ class DBhelper(object):
         '''Prints database version'''
         self._cur.execute("SELECT VERSION()")
         ver = self._cur.fetchone()
-        print "Database version : %s " % ver
+        print("Database version : %s " % ver)
 
     def add_data(self):
         '''add radiation datapoint to database'''
