@@ -1,5 +1,5 @@
 """DB function helper"""
-import MySQLdb as mdb
+import cmysql as mdb
 import sys
 
 class DBhelper(object):
