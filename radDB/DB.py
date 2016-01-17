@@ -12,7 +12,7 @@ class DBhelper(object):
         self._db = db
         #self._con = None
         #self._cur = None
-        self._con = mdb.connect(self._host, self._username, self._pw, self._db)
+        self._con = mdb.connect(self._host, self._username, self._pw, self._db, charset='utf8')
         self._cur = self._con.cursor()
         print(self._con)
 
