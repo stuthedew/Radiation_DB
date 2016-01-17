@@ -14,6 +14,7 @@ class DBhelper(object):
         #self._cur = None
         self._con = mdb.connect(self._host, self._username, self._pw, self._db)
         self._cur = self._con.cursor()
+        print(self._con)
 
     def __enter__(self):
         return self
