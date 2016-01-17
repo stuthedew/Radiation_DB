@@ -10,12 +10,12 @@ class DBhelper(object):
         self._username = username
         self._pw = pw
         self._db = db
-        self._con = None
-        self._cur = None
-
-    def __enter__(self):
+        #self._con = None
+        #self._cur = None
         self._con = mdb.connect(self._host, self._username, self._pw, self._db)
         self._cur = self._con.cursor()
+
+    def __enter__(self):
         return self
 
     def __exit__(self, exc_type, exc_value, traceback):
