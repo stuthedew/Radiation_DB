@@ -42,6 +42,7 @@ def main():
     try:
         with DBhelper('localhost', 'Rad_DB_py', '12345678', 'RadDB') as rdb:
             rdb.get_version()
+            rdb.add_data(6)
 
 
     except mdb.Error as err:
