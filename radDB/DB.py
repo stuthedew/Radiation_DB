@@ -32,7 +32,7 @@ class DBhelper(object):
         print("Database version : %s " % ver)
 
 
-    def add_data(self, value, fd_id, cap_time=datetime.today()):
+    def add_data(self, fd_id, value, cap_time=datetime.today()):
         '''add radiation datapoint to database'''
         self._cur.execute("""INSERT INTO data (collect_time, upload_time, feed_id, value)
             VALUES (%s, %s, %s, %s)""", cap_time, datetime.today(), fd_id, value)
@@ -43,7 +43,7 @@ def main():
     try:
         with DBhelper('localhost', 'Rad_DB_py', '12345678', 'RadDB') as rdb:
             rdb.get_version()
-            rdb.add_data(6)
+            rdb.add_data('test_id', 6)
 
 
     except mdb.Error as err:
