@@ -1,7 +1,7 @@
 """DB function helper"""
 import cymysql as mdb
 import sys
-import datetime
+from datetime import datetime
 
 class DBhelper(object):
     """Class that simplifies adding raditation datapoints to MySQL database.
