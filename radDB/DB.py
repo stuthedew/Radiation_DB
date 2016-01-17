@@ -34,7 +34,8 @@ class DBhelper(object):
 
     def add_data(self, value, cap_time=datetime.today()):
         '''add radiation datapoint to database'''
-        self._cur.execute("""INSERT INTO data (collect_time, upload_time, value) VALUES (%s, %s, %s)""", cap_time, datetime.today(), value)
+        self._cur.execute("""INSERT INTO data (collect_time, upload_time, value)
+            VALUES (%s, %s, %s)""", cap_time, datetime.today(), value)
 
 
 def main():
