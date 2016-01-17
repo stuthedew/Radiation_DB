@@ -1,6 +1,7 @@
 """DB function helper"""
 import cymysql as mdb
 import sys
+import datetime
 
 class DBhelper(object):
     """Class that simplifies adding raditation datapoints to MySQL database.
@@ -31,9 +32,9 @@ class DBhelper(object):
         print("Database version : %s " % ver)
 
 
-    def add_data(self):
+    def add_data(self, value, cap_time=datetime.today()):
         '''add radiation datapoint to database'''
-        pass
+        self._cur.execute("""INSERT INTO data (collect_time, upload_time, value)""", cap_time, datetime.today(), value)
 
 
 def main():
