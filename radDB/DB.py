@@ -32,10 +32,10 @@ class DBhelper(object):
         print("Database version : %s " % ver)
 
 
-    def add_data(self, value, cap_time=datetime.today()):
+    def add_data(self, value, fd_id, cap_time=datetime.today()):
         '''add radiation datapoint to database'''
-        self._cur.execute("""INSERT INTO data (collect_time, upload_time, value)
-            VALUES (%s, %s, %s)""", cap_time, datetime.today(), value)
+        self._cur.execute("""INSERT INTO data (collect_time, upload_time, feed_id, value)
+            VALUES (%s, %s, %s, %s)""", cap_time, datetime.today(), fd_id, value)
 
 
 def main():
