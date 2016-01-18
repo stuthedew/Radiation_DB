@@ -33,7 +33,8 @@ def on_disconnect(client, userdata, rc):
 
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
-    print(msg.topic+" "+str(msg.payload))
+    #print(msg.topic+" "+str(msg.payload))
+    print(msg.payload)
 
 def main():
     """MQTT test function"""
