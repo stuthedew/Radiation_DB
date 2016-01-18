@@ -2,7 +2,7 @@
 import paho.mqtt.client as mqtt
 import sys
 
-feed_id= "test"
+feed_id= "raw"
 
 return_str =[
     "Connection successful",

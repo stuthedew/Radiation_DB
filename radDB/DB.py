@@ -3,7 +3,7 @@ import cymysql as mdb
 import sys
 from datetime import datetime
 
-class DBhelper(object):
+class Helper(object):
     """Class that simplifies adding raditation datapoints to MySQL database.
     """
     def __init__(self, host, username, pw, db):
@@ -41,7 +41,7 @@ class DBhelper(object):
 def main():
     '''Runs if called as main program'''
     try:
-        with DBhelper('localhost', 'Rad_DB_py', '12345678', 'RadDB') as rdb:
+        with Helper('localhost', 'Rad_DB_py', '12345678', 'RadDB') as rdb:
             rdb.get_version()
             rdb.add_data('test_id', 6)
 
