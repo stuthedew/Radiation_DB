@@ -20,6 +20,7 @@ return_str =[
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, rc):
     """callback function on connect. Subscribes or exits depending on outcome"""
+    print("MQTT: "),
     print(return_str[rc])
     if(rc > 1):
         print("Connection refused - " + return_str[rc])

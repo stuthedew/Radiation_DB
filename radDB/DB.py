@@ -15,7 +15,7 @@ class Helper(object):
         #self._cur = None
         self._con = mdb.connect(self._host, self._username, self._pw, self._db, charset='utf8')
         self._cur = self._con.cursor()
-        print(self._con)
+        #print(self._con)
 
     def __enter__(self):
         return self
