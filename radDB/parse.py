@@ -23,7 +23,7 @@ def parseMsg(payload):
     y2 = array.array('h', values)
     y2.byteswap()
     #s1 = struct.Struct('>10s')
-    s2 = struct.Struct('>LI')
+    s2 = struct.Struct('>L i')
     #str1 = s1.unpack_from(y1)
     #feed_id = str1[0]
     capTime, value = s2.unpack_from(y2)
