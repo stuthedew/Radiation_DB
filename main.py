@@ -40,7 +40,7 @@ def on_disconnect(client, userdata, rc):
 def on_message(client, userdata, msg):
     try:
         with DB.Helper('localhost', 'Rad_DB_py', '12345678', 'RadDB') as rdb:
-            rdb.get_version()
+            #rdb.get_version()
             pMsg = parse.parseMsg(msg.payload)
             #print(pMsg[0])
             #print(pMsg[2])
