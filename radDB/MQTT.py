@@ -37,6 +37,7 @@ def on_message(client, userdata, msg):
     print("".join("{:02x}".format(ord(c)) for c in msg.payload))
 
 def main():
+    Print("Hello")
     """MQTT test function"""
     client = mqtt.Client()
     client.on_connect = on_connect
