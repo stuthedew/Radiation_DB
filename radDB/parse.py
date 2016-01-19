@@ -17,8 +17,8 @@ def parseMsg(payload):
     """Parses C struct to Python list"""
     #feed_id = binascii.unhexlify(payload[:10]) #get feed id
     #values = binascii.unhexlify(payload[10:])
-    feed_id = payload[:10]
-    values = payload[10:]
+    feed_id = payload[:8]
+    values = payload[8:]
     y1 = array.array('h', feed_id)
     y2 = array.array('h', values)
     y2.byteswap()
