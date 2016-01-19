@@ -40,9 +40,8 @@ def on_message(client, userdata, msg):
     try:
         with DB.Helper('localhost', 'Rad_DB_py', '12345678', 'RadDB') as rdb:
             rdb.get_version()
-            #pMsg = parse.parseMsg(msg.payload)
-            print(msg.payload)
-            print(parse.parseMsg(msg.payload))
+            pMsg = parse.parseMsg(msg.payload)
+            print(pMsg[0], pMsg[2], pMsg[1])
             return
             print("Adding to DB...")
             rdb.add_data(pMsg[0], pMsg[2], pMsg[1])
