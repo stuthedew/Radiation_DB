@@ -21,14 +21,14 @@ def parseMsg(payload):
     values = payload[10:]
     #y1 = array.array('h', feed_id)
     y2 = array.array('B', values)
-    print(y2[1])
+    print(y2)
 
     #y2.byteswap()
     #s1 = struct.Struct('>10s')
-    #s2 = struct.Struct('>L i')
+    s2 = struct.Struct('>L i')
     #str1 = s1.unpack_from(y1)
     #feed_id = str1[0]
-    #capTime, value = s2.unpack_from(payload, 10)
+    capTime, value = s2.unpack_from(y2)
     return feed_id#, capTime, value
 
 
