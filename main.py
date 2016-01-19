@@ -57,7 +57,19 @@ def main():
     #wait for data
     #if data then log to MySQL database
 
-    pass
+    print("Hello")
+    """MQTT test function"""
+    client = mqtt.Client()
+    client.on_connect = on_connect
+    client.on_message = on_message
+    client.username_pw_set('radpi', 'testpassword')
+    client.connect("localhost", 1883, 60)
+
+    # Blocking call that processes network traffic, dispatches callbacks and
+    # handles reconnecting.
+    # Other loop*() functions are available that give a threaded interface and a
+    # manual interface.
+    client.loop_forever()
 
 if __name__ == '__main__':
     sys.exit(main())
