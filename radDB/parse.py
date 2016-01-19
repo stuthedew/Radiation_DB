@@ -29,7 +29,7 @@ def parseMsg(payload):
     #str1 = s1.unpack_from(y1)
     #feed_id = str1[0]
     capTime, value = s2.unpack_from(y2)
-    return feed_id#, capTime, value
+    return feed_id, capTime, value
 
 
 def main():
