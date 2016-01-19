@@ -17,12 +17,12 @@ def parseMsg(payload):
     """Parses C struct to Python list"""
     #feed_id = binascii.unhexlify(payload[:10]) #get feed id
     #values = binascii.unhexlify(payload[10:])
-    feed_id = payload[:10]
-    values = payload[1][10:]
+    #feed_id = payload[:10]
+    values = payload[10:]
     #y1 = array.array('h', feed_id)
-    y2 = array.array('B', payload)
+    y2 = array.array('B', values)
     print(y2)
-    print(y2[10:])
+    print(y2[1][10:])
     #y2.byteswap()
     #s1 = struct.Struct('>10s')
     #s2 = struct.Struct('>L i')
