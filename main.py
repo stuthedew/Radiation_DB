@@ -1,6 +1,6 @@
 '''MQTT and MySQL based radiation sensor logger'''
 from __future__ import division
-from radDB import DB
+from radDB import DB, parse
 import paho.mqtt.client as mqtt
 import cymysql as mdb
 import sys
@@ -39,16 +39,16 @@ def on_message(client, userdata, msg):
     try:
         with DB.Helper('localhost', 'Rad_DB_py', '12345678', 'RadDB') as rdb:
             rdb.get_version()
-            pMsg = parseMsg(msg)
-            rdb.add_data('test_id', 6)
+            pMsg = parse.parseMsg(msg)
+            print(pMsg)
+            print("Adding to DB...")
+            rdb.add_data(pMsg[0], pMsg[2], pMsg[1])
 
 
     except mdb.Error as err:
         print "Error %d: %s" % (err.args[0], err.args[1])
         sys.exit(1)
 
-def parseMsg(msg):
-    pass
 
 def main():
     """Wait for incoming radiation data, and log it to MySQL database"""
