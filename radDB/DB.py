@@ -46,7 +46,7 @@ def main():
             rdb.add_data('test_id', 6)
 
 
-    except mdb.Error as err:
+    except Exception as err:
         print "Error %d: %s" % (err.args[0], err.args[1])
         sys.exit(1)
 
