@@ -18,9 +18,9 @@ def parseMsg(payload):
     #feed_id = binascii.unhexlify(payload[:10]) #get feed id
     #values = binascii.unhexlify(payload[10:])
     feed_id = payload[:10]
-    values = payload[10:]
+    values = payload[1][10:]
     #y1 = array.array('h', feed_id)
-    y2 = array.array('h', payload)
+    y2 = array.array('B', payload)
     print(y2)
     print(y2[10:])
     #y2.byteswap()
