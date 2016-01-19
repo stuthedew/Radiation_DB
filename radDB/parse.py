@@ -23,9 +23,9 @@ def parseMsg(payload):
     y2 = array.array('B', values)
     print(y2)
 
-    y2.byteswap()
+    #y2.byteswap()
 
-    s2 = struct.Struct('>L h')
+    s2 = struct.Struct('<L h')
 
     capTime, value = s2.unpack_from(y2)
     return feed_id, capTime, value
