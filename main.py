@@ -5,6 +5,7 @@ import paho.mqtt.client as mqtt
 import cymysql as mdb
 import sys
 
+feed_id = "raw"
 
 return_str =[
     "Connection successful",
