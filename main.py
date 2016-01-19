@@ -46,7 +46,7 @@ def on_message(client, userdata, msg):
             #print(pMsg[2])
             #print(pMsg[1])
 
-            print("Adding to DB...")
+            print("Adding {} to DB...".format(pMsg))
             rdb.add_data(pMsg[0], pMsg[2])
 
 
