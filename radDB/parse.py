@@ -22,7 +22,7 @@ def parseMsg(payload):
     #y1 = array.array('h', feed_id)
     y2 = array.array('B', values)
     print(y2)
-    print(y2[1][10:])
+    
     #y2.byteswap()
     #s1 = struct.Struct('>10s')
     #s2 = struct.Struct('>L i')
