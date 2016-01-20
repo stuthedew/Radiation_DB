@@ -35,11 +35,10 @@ def on_disconnect(client, userdata, rc):
     """Callback for disconnect"""
     if rc != 0:
         print("Unexpected disconnection.")
+        client.reconnect()
 
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
-
-
     try:
         pMsg = parse.parseMsg(msg.payload)
         with DB.Helper('192.168.0.11', 'Rad_DB_py', '12345678', 'RadDB') as rdb:
