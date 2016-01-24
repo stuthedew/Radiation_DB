@@ -51,7 +51,7 @@ def on_message(client, userdata, msg):
 
 
     except Exception as err:
-        print "Error %d: %s" % (err.args[0], err.args[1])
+        print "Error %d: %s" % (err.args)
         #sys.exit(1)
 
 
