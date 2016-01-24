@@ -1,6 +1,7 @@
 '''MQTT and MySQL based radiation sensor logger'''
 from __future__ import division
 from radDB import DB, parse
+import argparse
 import paho.mqtt.client as mqtt
 import cymysql as mdb
 import sys
@@ -16,6 +17,7 @@ return_str =[
     "not authorised"
     ]
 
+args = None
 
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, rc):
@@ -41,14 +43,22 @@ def on_disconnect(client, userdata, rc):
 def on_message(client, userdata, msg):
     try:
         pMsg = parse.parseMsg(msg.payload)
-        with DB.Helper('192.168.0.11', 'Rad_DB_py', '12345678', 'RadDB') as rdb:
-            print("Adding \"{}\", {}, {} to DB...".format(pMsg[0], pMsg[1], pMsg[2]))
-            rdb.add_data(pMsg[0], pMsg[2])
+        print(("Received \"{}\", {}, {} to DB...".format(pMsg[0], pMsg[1], pMsg[2])))
+        if(args.dry_run):
+            with DB.Helper('192.168.0.11', 'Rad_DB_py', '12345678', 'RadDB') as rdb:
+                print("Adding to database")
+                rdb.add_data(pMsg[0], pMsg[2])
 
 
     except Exception as err:
         print "Error %d: %s" % (err.args[0], err.args[1])
         #sys.exit(1)
+
+
+def argBegin():
+    parser = argparse.ArgumentParser(description='Read values from MQTT and upload to database')
+    parser.add_argument('--dry-run', action='store_true', default=False, help='Do not store values in database')
+    return parser.parse_args()
 
 
 def main():
@@ -57,7 +67,7 @@ def main():
     #start mqtt server
     #wait for data
     #if data then log to MySQL database
-
+    args = argBegin()
     print("Hello")
     """MQTT test function"""
     client = mqtt.Client()
