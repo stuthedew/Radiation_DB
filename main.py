@@ -58,7 +58,7 @@ def on_message(client, userdata, msg):
 def argBegin():
     parser = argparse.ArgumentParser(description='Read values from MQTT and upload to database')
     parser.add_argument('--dry-run', action='store_true', default=False, help='Do not store values in database')
-    return parser.parse_args()
+    arg = parser.parse_args()
 
 
 def main():
@@ -67,7 +67,7 @@ def main():
     #start mqtt server
     #wait for data
     #if data then log to MySQL database
-    arg = argBegin()
+    argBegin()
     """MQTT test function"""
     client = mqtt.Client()
     client.on_connect = on_connect
