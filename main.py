@@ -17,7 +17,7 @@ return_str =[
     "not authorised"
     ]
 
-args = None
+arg = None
 
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, rc):
@@ -43,8 +43,8 @@ def on_disconnect(client, userdata, rc):
 def on_message(client, userdata, msg):
     try:
         pMsg = parse.parseMsg(msg.payload)
-        print(("Received \"{}\", {}, {} to DB...".format(pMsg[0], pMsg[1], pMsg[2])))
-        if(args.dry_run == False):
+        print(("Received \"{}\", {}, {}".format(pMsg[0], pMsg[1], pMsg[2])))
+        if(arg.dry_run == False):
             with DB.Helper('192.168.0.11', 'Rad_DB_py', '12345678', 'RadDB') as rdb:
                 print("Adding to database")
                 rdb.add_data(pMsg[0], pMsg[2])
@@ -67,8 +67,7 @@ def main():
     #start mqtt server
     #wait for data
     #if data then log to MySQL database
-    args = argBegin()
-    print("Hello")
+    arg = argBegin()
     """MQTT test function"""
     client = mqtt.Client()
     client.on_connect = on_connect
