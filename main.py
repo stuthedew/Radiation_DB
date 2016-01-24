@@ -64,6 +64,7 @@ def argBegin():
 
 def main():
     """Wait for incoming radiation data, and log it to MySQL database"""
+    global args
     args = argBegin()
     client = mqtt.Client()
     client.on_connect = on_connect
