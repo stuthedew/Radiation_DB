@@ -43,7 +43,7 @@ def on_disconnect(client, userdata, rc):
 def on_message(client, userdata, msg):
     try:
         pMsg = parse.parseMsg(msg.payload)
-        print(("Received \"{}\", {}, {}".format(pMsg[0], pMsg[1], pMsg[2]))),
+        print(("Received \"{}\", {}, {}...".format(pMsg[0], pMsg[1], pMsg[2]))),
         if(args.dry_run):
             print("Dry Run")
         else:
