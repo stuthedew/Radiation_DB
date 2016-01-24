@@ -41,6 +41,7 @@ def on_disconnect(client, userdata, rc):
 
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
+    print(args)
     try:
         pMsg = parse.parseMsg(msg.payload)
         print(("Received \"{}\", {}, {}".format(pMsg[0], pMsg[1], pMsg[2])))
@@ -64,7 +65,6 @@ def argBegin():
 def main():
     """Wait for incoming radiation data, and log it to MySQL database"""
     args = argBegin()
-    print(args)
     client = mqtt.Client()
     client.on_connect = on_connect
     client.on_message = on_message
