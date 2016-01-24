@@ -41,11 +41,12 @@ def on_disconnect(client, userdata, rc):
 
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
-    print(args)
     try:
         pMsg = parse.parseMsg(msg.payload)
-        print(("Received \"{}\", {}, {}".format(pMsg[0], pMsg[1], pMsg[2])))
-        if(args.dry_run == False):
+        print(("Received \"{}\", {}, {}".format(pMsg[0], pMsg[1], pMsg[2]))),
+        if(args.dry_run):
+            print("Dry Run")
+        else:
             with DB.Helper('192.168.0.11', 'Rad_DB_py', '12345678', 'RadDB') as rdb:
                 print("Adding to database")
                 rdb.add_data(pMsg[0], pMsg[2])
