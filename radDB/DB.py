@@ -32,12 +32,12 @@ class Helper(object):
         print("Database version : %s " % ver)
 
 
-    def add_data(self, fd_id, value, cap_time=None):
+    def add_data(self, fd_id, dist, value, cap_time=None):
         '''add radiation datapoint to database'''
         if(cap_time is None):
             cap_time = datetime.today()
         self._cur.execute("""INSERT INTO data (collect_time, upload_time, feed_id, value)
-            VALUES (%s, %s, %s, %s)""", (cap_time, datetime.today(), fd_id, value))
+            VALUES (%s, %s, %s, %s)""", (cap_time, datetime.today(), fd_id, dist, value))
         self._con.commit()
 
 
