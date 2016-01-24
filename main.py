@@ -44,7 +44,7 @@ def on_message(client, userdata, msg):
     try:
         pMsg = parse.parseMsg(msg.payload)
         print(("Received \"{}\", {}, {} to DB...".format(pMsg[0], pMsg[1], pMsg[2])))
-        if(args.dry_run):
+        if(args.dry_run == False):
             with DB.Helper('192.168.0.11', 'Rad_DB_py', '12345678', 'RadDB') as rdb:
                 print("Adding to database")
                 rdb.add_data(pMsg[0], pMsg[2])
