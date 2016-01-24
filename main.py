@@ -58,13 +58,13 @@ def on_message(client, userdata, msg):
 def argBegin():
     parser = argparse.ArgumentParser(description='Read values from MQTT and upload to database')
     parser.add_argument('--dry-run', action='store_true', default=False, help='Do not store values in database')
-    print(parser.parse_args())
     return parser.parse_args()
 
 
 def main():
     """Wait for incoming radiation data, and log it to MySQL database"""
     args = argBegin()
+    print(args)
     client = mqtt.Client()
     client.on_connect = on_connect
     client.on_message = on_message
