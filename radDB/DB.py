@@ -36,7 +36,7 @@ class Helper(object):
         '''add radiation datapoint to database'''
         if(cap_time is None):
             cap_time = datetime.today()
-        self._cur.execute("""INSERT INTO data (collect_time, upload_time, feed_id, value)
+        self._cur.execute("""INSERT INTO data (collect_time, upload_time, feed_id, rad_distance, value)
             VALUES (%s, %s, %s, %s)""", (cap_time, datetime.today(), fd_id, dist, value))
         self._con.commit()
 
