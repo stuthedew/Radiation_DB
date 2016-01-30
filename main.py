@@ -31,6 +31,8 @@ def on_connect(client, userdata, rc):
     # reconnect then subscriptions will be renewed.
     else:
         print(return_str[rc])
+        if(args.dry_run):
+            print("***Dry Run***")
         client.subscribe(feed_id)
 
 def on_disconnect(client, userdata, rc):
