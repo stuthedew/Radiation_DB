@@ -50,7 +50,7 @@ def main():
 
 
     except Exception as err:
-        print "Error %d: %s" % (err.args[0], err.args[1])
+        print "Error:".format(err)
         sys.exit(1)
 
 
