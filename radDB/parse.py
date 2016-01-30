@@ -19,6 +19,7 @@ def parseMsg(payload):
     arr = array.array('B', values)
     s = struct.Struct('<10s h L h') #Little endian 10 char, unsigned long, signed int16
     feed_id, dist, capTime, value = s.unpack_from(arr)
+    feed_id = feed_id.rstrip(' \t\r\n\0')
     return feed_id, dist, capTime, value
 
 
